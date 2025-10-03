@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafetería Aroma</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="prueba.css" />
+    <link rel="shortcut icon" href="loginnn.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="header-flex">
+        <div class="logo-title">
+          <img src="logo2.png" alt="Logo Aroma" />
+          <h1>Cafetería Aroma</h1>
+        </div>
+        <nav>
+          <button onclick="scrollToMenu()">Ver Menú</button>
+          <a href="#servicios-extra">Servicios</a>
+          <a href="#contacto" class="btn-contacto">Contáctanos</a>
+          <button
+            class="cart-icon-btn"
+            onclick="toggleCart()"
+            aria-label="Ver carrito"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-12.832-2l1.6-8h15.232l1.6 8h-18.432zm16.832-10h-16v2h16v-2z"
+              />
+            </svg>
+            <span class="cart-count" id="cart-count">0</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Banner con imagen y frase -->
+    <section class="banner">
+      <div class="banner-content">
+        <h1>☕ Bienvenido a Cafetería Aroma</h1>
+        <p>
+          “Cada taza cuenta una historia…<br />
+          y la tuya comienza aquí, con un café y una sonrisa.”
+        </p>
+        <button onclick="scrollToMenu()">Explorar Menú</button>
+      </div>
+      <div class="banner-img">
+        <img
+          src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
+          alt="Café con arte latte"
+        />
+      </div>
+    </section>
+
+    <!-- Quiénes Somos con imagen y fondo -->
+    <section class="quienes-somos">
+      <div class="qs-content">
+        <img
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+          alt="Equipo Aroma"
+          class="qs-img"
+        />
+        <h2>¿Quiénes somos?</h2>
+        <p>
+          Somos <strong>Cafetería Aroma</strong>, un equipo apasionado por el café,
+          la pastelería y la buena atención.<br />
+          Desde 2015, nos dedicamos a crear momentos especiales para nuestros
+          clientes, combinando sabores únicos, ingredientes frescos y un ambiente
+          acogedor.
+        </p>
+        <p>
+          Nuestro compromiso es ofrecer productos de calidad, experiencias
+          gastronómicas y servicios personalizados como clases de cocina, catering
+          y oportunidades de empleo en el sector.
+        </p>
+        <p>
+          <span
+            style="font-size:1.2em;color:#b47152;"
+            >¡Ven y vive la experiencia Aroma, donde cada visita es un motivo para
+            sonreír!</span
+          >
+        </p>
+      </div>
+    </section>
+
+    <div class="container">
+      <section id="menu" class="menu">
+        <!-- ...productos... -->
+        <div class="item">
+          <img
+            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
+            alt="Café Latte"
+          />
+          <h3>Café Latte</h3>
+          <p>$8.000</p>
+          <button onclick="addToCart('Café Latte', 8000)">Agregar</button>
+        </div>
+        <div class="item">
+          <img
+            src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80"
+            alt="Capuccino"
+          />
+          <h3>Capuccino</h3>
+          <p>$9.000</p>
+          <button onclick="addToCart('Capuccino', 9000)">Agregar</button>
+        </div>
+        <div class="item">
+          <img src="na-visky-3hRRT4qztzs-unsplash.jpg" alt="Té Verde" />
+          <h3>Té Verde</h3>
+          <p>$6.000</p>
+          <button onclick="addToCart('Té Verde', 6000)">Agregar</button>
+        </div>
+        <div class="item">
+          <img
+            src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=503&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Pastel de Chocolate"
+          />
+          <h3>Pastel de Chocolate</h3>
+          <p>$12.000</p>
+          <button onclick="addToCart('Pastel de Chocolate', 12000)">
+            Agregar
+          </button>
+        </div>
+        <div class="item">
+          <img
+            src="https://images.unsplash.com/photo-1600521853186-93b88b3a07b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNydWFzJUMzJUExbnxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Croissant"
+          />
+          <h3>Croissant</h3>
+          <p>$7.000</p>
+          <button onclick="addToCart('Croissant', 7000)">Agregar</button>
+        </div>
+        <div class="item">
+          <img
+            src="https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bXVmZmlufGVufDB8fDB8fHww"
+            alt="Muffin"
+          />
+          <h3>Muffin</h3>
+          <p>$6.500</p>
+          <button onclick="addToCart('Muffin', 6500)">Agregar</button>
+        </div>
+        <div class="item">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1687977546323-449edb707dba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8anVnbyUyMG5hdHVyYXNsfGVufDB8fDB8fHww"
+            alt="Jugo Natural"
+          />
+          <h3>Jugo Natural</h3>
+          <p>$5.000</p>
+          <button onclick="addToCart('Jugo Natural', 5000)">Agregar</button>
+        </div>
+        <div class="item">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1700677185820-c38b28c3dd06?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2FuZHdpY2h8ZW58MHx8MHx8fDA%3D"
+            alt="Sandwich"
+          />
+          <h3>Sandwich</h3>
+          <p>$10.000</p>
+          <button onclick="addToCart('Sandwich', 10000)">Agregar</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Servicios extra -->
+    <section id="servicios-extra" class="servicios-extra">
+      <div class="servicio-card" onclick="mostrarRegistro('cocina')">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png"
+          alt="Clases de cocina"
+        />
+        <h3>Clases de Cocina</h3>
+        <p>
+          Aprende a preparar recetas deliciosas con nuestros chefs. Clases
+          grupales y privadas cada semana.
+        </p>
+        <p><strong>¡Inscríbete y vive la experiencia!</strong></p>
+      </div>
+      <div class="servicio-card" onclick="mostrarRegistro('empleo')">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Empleo"
+        />
+        <h3>Bolsa de Empleo</h3>
+        <p>
+          ¿Buscas trabajo en gastronomía? Consulta nuestras vacantes y únete a
+          nuestro equipo.
+        </p>
+        <p><strong>Envía tu hoja de vida hoy.</strong></p>
+      </div>
+      <div class="servicio-card" onclick="mostrarRegistro('eventos')">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+          alt="Eventos"
+        />
+        <h3>Eventos y Catering</h3>
+        <p>
+          Organiza tu evento con nosotros. Ofrecemos catering para reuniones,
+          fiestas y empresas.
+        </p>
+        <p><strong>Solicita cotización personalizada.</strong></p>
+      </div>
+    </section>
+
+    <!-- Formulario dinámico de registro de servicios -->
+    <div id="registro-servicio" class="registro-servicio" style="display: none">
+      <div class="registro-content">
+        <button class="cerrar-registro" onclick="cerrarRegistro()">X</button>
+        <div id="form-cocina" style="display: none">
+          <h2>Registro a Clases de Cocina</h2>
+          <form>
+            <input type="text" placeholder="Nombre completo" required />
+            <input type="email" placeholder="Correo electrónico" required />
+            <input type="tel" placeholder="Teléfono" required />
+            <select required>
+              <option value="">Tipo de clase</option>
+              <option value="grupal">Grupal</option>
+              <option value="privada">Privada</option>
+            </select>
+            <button type="submit">Inscribirme</button>
+          </form>
+        </div>
+        <div id="form-empleo" style="display: none">
+          <h2>Aplicar a Bolsa de Empleo</h2>
+          <form>
+            <input type="text" placeholder="Nombre completo" required />
+            <input type="email" placeholder="Correo electrónico" required />
+            <input type="tel" placeholder="Teléfono" required />
+            <input type="text" placeholder="Cargo de interés" required />
+            <input type="file" accept=".pdf,.doc,.docx" required />
+            <button type="submit">Enviar solicitud</button>
+          </form>
+        </div>
+        <div id="form-eventos" style="display: none">
+          <h2>Solicitar Catering/Eventos</h2>
+          <form>
+            <input type="text" placeholder="Nombre completo" required />
+            <input type="email" placeholder="Correo electrónico" required />
+            <input type="tel" placeholder="Teléfono" required />
+            <input type="text" placeholder="Tipo de evento" required />
+            <input type="number" placeholder="Cantidad de personas" required />
+            <textarea placeholder="Detalles o requerimientos"></textarea>
+            <button type="submit">Solicitar cotización</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contacto-section">
+      <h2>Contáctanos</h2>
+      <p>
+        ¿Tienes dudas, quieres reservar o inscribirte en clases? Escríbenos y te
+        responderemos pronto.
+      </p>
+      <form>
+        <input type="text" placeholder="Tu nombre" required />
+        <input type="email" placeholder="Tu correo" required />
+        <textarea placeholder="¿En qué podemos ayudarte?" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+      <div class="info">
+        <p>📧 contacto@cafearoma.com</p>
+        <p>📞 +57 300 123 4567</p>
+        <p>📍 Calle 123 #45-67, Medellín</p>
+        <p>
+          <a href="https://wa.me/573001234567" target="_blank">WhatsApp</a> |
+          <a href="https://instagram.com/" target="_blank">Instagram</a> |
+          <a href="https://facebook.com/" target="_blank">Facebook</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Carrito Mejorado -->
+    <div class="cart" id="cart" style="display:none;">
+      <div class="cart-header">
+        <h3>Tu Carrito</h3>
+        <button class="cerrar-cart" onclick="cerrarCarrito()">✕</button>
+      </div>
+      <div id="cart-items"></div>
+      <div class="total" id="total">Total: $0</div>
+      <hr style="margin:18px 0;">
+      <div class="cart-user">
+        <h4>Datos de tu cuenta</h4>
+        <form id="cart-user-form">
+          <input type="text" id="nombre-usuario" placeholder="Nombre completo" required>
+          <input type="email" id="email-usuario" placeholder="Correo electrónico" required>
+          <input type="tel" id="telefono-usuario" placeholder="Teléfono" required>
+        </form>
+      </div>
+      <div class="cart-pago">
+        <h4>Forma de pago</h4>
+        <select id="forma-pago" required>
+          <option value="">Selecciona una opción</option>
+          <option value="efectivo">Efectivo en tienda</option>
+          <option value="tarjeta">Tarjeta (en tienda)</option>
+          <option value="nequi">Nequi</option>
+          <option value="daviplata">Daviplata</option>
+        </select>
+      </div>
+      <button class="btn-pagar" onclick="procesarPedido()">Finalizar pedido</button>
+      <div id="cart-mensaje" class="cart-mensaje"></div>
+      <div class="cart-info">
+        <strong>¿Cómo funciona?</strong><br>
+        Llena tus datos y selecciona tu forma de pago.<br>
+        <span style="color:#b47152;">¡Recoge tu pedido en tienda o solicita entrega!</span>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <img
+          src="logo2.png"
+          alt="Logo Aroma"
+          style="width:40px;vertical-align:middle;margin-right:8px;"
+        />
+        <span>&copy; 2025 Cafetería Aroma. Todos los derechos reservados.</span>
+      </div>
+    </footer>
+
+    <script>
+      let cart = []
+      let cartOpen = false
+
+      function addToCart(name, price) {
+        cart.push({ name, price })
+        renderCart()
+        updateCartCount()
+        showCartIconPulse()
+      }
+
+      function removeItem(index) {
+        cart.splice(index, 1)
+        renderCart()
+        updateCartCount()
+      }
+
+      function renderCart() {
+        const cartItems = document.getElementById('cart-items')
+        const totalEl = document.getElementById('total')
+        cartItems.innerHTML = ''
+        let total = 0
+        cart.forEach((item, index) => {
+          total += item.price
+          const div = document.createElement('div')
+          div.classList.add('cart-item')
+          div.innerHTML = `
+        <span>${item.name} - $${item.price.toLocaleString()}</span>
+        <button onclick="removeItem(${index})">X</button>
+      `
+          cartItems.appendChild(div)
+        })
+        totalEl.textContent = `Total: $${total.toLocaleString()}`
+      }
+
+      function updateCartCount() {
+        document.getElementById('cart-count').textContent = cart.length
+      }
+
+      function toggleCart() {
+        cartOpen = !cartOpen
+        document.getElementById('cart').style.display = cartOpen ? 'block' : 'none'
+        if (cartOpen) renderCart()
+      }
+
+      function cerrarCarrito() {
+        cartOpen = false
+        document.getElementById('cart').style.display = 'none'
+      }
+
+      function showCartIconPulse() {
+        const cartIcon = document.querySelector('.cart-icon-btn svg')
+        cartIcon.style.transition = 'box-shadow 0.3s'
+        cartIcon.style.boxShadow = '0 0 12px 4px #d9b38c'
+        setTimeout(() => {
+          cartIcon.style.boxShadow = ''
+        }, 400)
+      }
+
+      // Responsive: cerrar carrito al hacer click fuera
+      document.addEventListener('click', function (e) {
+        const cartDiv = document.getElementById('cart')
+        const cartBtn = document.querySelector('.cart-icon-btn')
+        if (
+          cartOpen &&
+          !cartDiv.contains(e.target) &&
+          !cartBtn.contains(e.target)
+        ) {
+          cerrarCarrito()
+        }
+      })
+
+      function procesarPedido() {
+        const nombre = document.getElementById('nombre-usuario').value.trim()
+        const email = document.getElementById('email-usuario').value.trim()
+        const telefono = document.getElementById('telefono-usuario').value.trim()
+        const pago = document.getElementById('forma-pago').value
+        const mensaje = document.getElementById('cart-mensaje')
+        if (!nombre || !email || !telefono || !pago || cart.length === 0) {
+          mensaje.textContent = "Por favor completa todos los datos y agrega productos."
+          mensaje.style.color = "#b47152"
+          return
+        }
+        mensaje.style.color = "#2e7d32"
+        mensaje.textContent = "¡Pedido registrado! Te contactaremos para confirmar. Gracias por elegir Aroma."
+        cart = []
+        renderCart()
+        updateCartCount()
+        setTimeout(cerrarCarrito, 2500)
+      }
+
+      function scrollToMenu() {
+        document.getElementById('menu').scrollIntoView({ behavior: 'smooth' })
+      }
+
+      function mostrarRegistro(servicio) {
+        document.getElementById('registro-servicio').style.display = 'flex'
+        document.getElementById('form-cocina').style.display =
+          servicio === 'cocina' ? 'block' : 'none'
+        document.getElementById('form-empleo').style.display =
+          servicio === 'empleo' ? 'block' : 'none'
+        document.getElementById('form-eventos').style.display =
+          servicio === 'eventos' ? 'block' : 'none'
+      }
+
+      function cerrarRegistro() {
+        document.getElementById('registro-servicio').style.display = 'none'
+      }
+    </script>
+  </body>
+</html>
